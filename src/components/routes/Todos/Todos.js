@@ -38,7 +38,7 @@ class Todos extends PureComponent<Props> {
           <ul>
             {todoList}
           </ul>
-          <Link to="/home">Back</Link>
+          <Link to="/">Back</Link>
           <button
             onClick={setFilterDone}
           >

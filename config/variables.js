@@ -9,7 +9,7 @@
 const variables = {
 
   // App-specific config
-  appTitle: 'Ooober',
+  appTitle: 'React Redux Course',
   appDescription: 'The best site ever.',
   appIcon: '/static/images/logo.png',
   appLogo: '/static/images/logo@2x.png',
