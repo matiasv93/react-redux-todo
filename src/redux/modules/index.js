@@ -9,6 +9,9 @@ import type { InitState } from 'src/redux/modules/init/types'
 import type { AuthState } from 'src/redux/modules/auth/types'
 import type { UIState } from 'src/redux/modules/ui/types'
 
+// TODO
+import type { TodosState } from 'src/redux/modules/todos/types'
+
 // Examples
 import type { ExamplesState } from 'src/redux/modules/examples'
 
@@ -21,6 +24,9 @@ import ui from './ui/reducer'
 // Examples
 import examples from './examples'
 
+// TODO
+import todos from './todos/reducer'
+
 export type RootReducerState = {
   env: EnvState,
   request: RequestState,
@@ -30,6 +36,9 @@ export type RootReducerState = {
 
   // Examples
   examples: ExamplesState,
+
+  // TODO
+  todos: TodosState,
 
   // redux-form
   form: Object,
@@ -46,6 +55,9 @@ const rootReducer = combineReducers({
 
   // Examples
   examples,
+
+  // TODO
+  todos,
 
   // redux-form
   form,
