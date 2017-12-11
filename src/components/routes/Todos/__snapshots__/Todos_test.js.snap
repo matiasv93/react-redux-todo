@@ -16,7 +16,7 @@ exports[`<Todos> renders the Todos content 1`] = `
     <ul />
     <Link
       replace={false}
-      to="/home"
+      to="/"
     >
       Back
     </Link>

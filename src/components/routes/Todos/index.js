@@ -5,6 +5,7 @@ import {
   getTodos,
   setFilterCurrent,
   setFilterDone,
+  addTodo
 } from 'src/redux/modules/todos/actions'
 import getVisibleTodos from 'src/selectors/getVisibleTodos'
 import type { Todo } from 'src/redux/modules/todos/types'
@@ -19,7 +20,7 @@ type StateProps = {
 }
 
 const mapStateToProps = (state: RootReducerState): StateProps => ({
-  todos: getVisibleTodos(state),
+  todos: getVisibleTodos(state.todos),
   filter: state.todos.filter,
 })
 
@@ -28,6 +29,7 @@ type DispatchProps = {
   setFilterCurrent: Function,
   setFilterDone: Function,
   getTodos: Function,
+  addTodo: Function,
 }
 
 const mapDispatchToProps = (dispatch: any): DispatchProps =>
@@ -35,6 +37,7 @@ const mapDispatchToProps = (dispatch: any): DispatchProps =>
     setFilterCurrent,
     setFilterDone,
     getTodos,
+    addTodo,
   }, dispatch)
 
 

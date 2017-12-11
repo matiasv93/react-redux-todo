@@ -2,7 +2,7 @@
 // Todos model with default values
 export type Todo = {
   text: string,
-  date: string,
+  id: string,
   done: boolean,
 }
 

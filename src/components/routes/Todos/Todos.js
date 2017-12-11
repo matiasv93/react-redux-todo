@@ -9,46 +9,63 @@ import type { ReduxProps } from './'
 
 type Props = ReduxProps
 
+type State = {
+  text: string,
+}
 
-class Todos extends PureComponent<Props> {
 
-  componentDidMount () {
+class Todos extends PureComponent<Props, State> {
+
+  constructor(props: Props) {
+
+    super(props);
+    this.state = { text: '' };
+
+  }
+
+  componentDidMount() {
 
     this.props.getTodos()
 
   }
 
-  // TODO: watch for resolution of
-  // https://github.com/yannickcr/eslint-plugin-react/issues/1376
+  handleText(e: Object) {
+
+    this.setState({ text: e.target.value })
+
+  }
+
+  handleSubmit () {
+
+    this.props.addTodo(this.state.text)
+    this.setState({ text: '' })
+  }
+
   props: Props
 
   render () {
 
-    const { setFilterCurrent, setFilterDone, todos } = this.props
+    const { setFilterCurrent, setFilterDone, addTodo, todos } = this.props
 
     const todoList = todos.map(todo =>
-      <li key={todo.text}>{todo.text}</li>
+      <li className={css.todoItem} key={todo.text}>{todo.text}</li>
     )
 
     return (
       <div className={css.todos}>
         <Helmet title="Todos" />
         <div className={css.content}>
-          Todos page
+          <h2 className={css.title}>Todos page</h2>
           <ul>
             {todoList}
           </ul>
           <Link to="/">Back</Link>
-          <button
-            onClick={setFilterDone}
-          >
-            Filter Done
-          </button>
-          <button
-            onClick={setFilterCurrent}
-          >
-            Filter Current
-          </button>
+          <input
+            className={css.input}
+            type="text"
+            value={this.state.text}
+            onChange={this.handleText.bind(this)}/>
+          <button onClick={() => this.handleSubmit()}>Add item</button>
         </div>
       </div>
     )

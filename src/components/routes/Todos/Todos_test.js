@@ -12,6 +12,8 @@ const mockProps = {
   setFilterCurrent: jest.fn(),
   setFilterDone: jest.fn(),
   getTodos: jest.fn(),
+  addTodo: jest.fn(),
+  deleteTodo: jest.fn(),
 }
 
 it('<Todos> renders the Todos content', () => {

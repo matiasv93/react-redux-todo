@@ -1,11 +1,10 @@
 // @flow
 import { createSelector } from 'reselect'
-import { FILTER_CURRENT, FILTER_DONE } from 'src/redux/modules/examples/todos/consts'
-import type { RootReducerState } from 'src/redux/modules'
+import { FILTER_CURRENT, FILTER_DONE } from 'src/redux/modules/todos/consts'
 
 
-const getTodos = (state: RootReducerState) => state.examples.todos.list
-const getFilter = (state: RootReducerState) => state.examples.todos.filter
+const getTodos = (todos: Object) => todos
+const getFilter = (todos: Object) => todos
 
 
 const getVisibleTodos = createSelector(
@@ -15,13 +14,13 @@ const getVisibleTodos = createSelector(
     switch (filter) {
 
       case FILTER_CURRENT:
-        return todos.filter(todo => todo.done === false)
+        return todos.list.filter(todo => todo.done === false)
 
       case FILTER_DONE:
-        return todos.filter(todo => todo.done === true)
+        return todos.list.filter(todo => todo.done === true)
 
       default:
-        return todos
+        return todos.list
 
     }
 

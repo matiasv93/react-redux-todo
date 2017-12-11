@@ -1,7 +1,7 @@
 // @flow
 // Non-shallow reducer state example needs Immutable
 // Async actions need redux-observable epics
-import { GET_TODOS, SET_FILTER } from './consts'
+import { GET_TODOS, ADD_TODO, DELETE_TODO, SET_FILTER } from './consts'
 import type { TodosState } from './types'
 import initialState from './initialState'
 
@@ -16,26 +16,26 @@ function reducer (state: TodosState = initialState, action: GlobalFSA<any>) {
         filter: action.payload.filter,
       }
 
-    case `${GET_TODOS}_PENDING`:
+    case `${GET_TODOS}`:
+      return state
+
+    case `${ADD_TODO}`:
       return {
         ...state,
-        isFetching: true,
+        list: [
+          ...state.list,
+          {
+            id: action.payload.id,
+              text: action.payload.text,
+                done: false
+          }
+        ]
       }
 
-    case `${GET_TODOS}_FULFILLED`:
-      return {
-        ...state,
-        list: action.payload.data.list,
-        isFetching: false,
-        error: initialState.error,
-      }
-
-    case `${GET_TODOS}_REJECTED`:
-      return {
-        ...state,
-        isFetching: false,
-        error: action.payload,
-      }
+    case `${DELETE_TODO}`:
+      return [
+        ...state.list,
+      ]
 
     default:
       return state

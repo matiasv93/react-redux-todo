@@ -1,16 +1,30 @@
+.title {
+  color: green;
+}
+
+.input {
+  border: 1px solid black;
+  margin: 1rem 0;
+  padding: .5rem 1rem;
+}
+
 .todos {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-top: 5rem;
-  color: green;
+  color: black;
+}
+
+.todoItem {
+  padding: .5rem 0;
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  max-width: 300px;
+  width: 800px;
 
   button {
     margin-top: 1rem;

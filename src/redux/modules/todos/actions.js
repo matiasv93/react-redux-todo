@@ -1,6 +1,5 @@
 // @flow
-import { GET_TODOS, SET_FILTER, FILTER_DONE, FILTER_CURRENT } from './consts'
-import { getTodosMock as getTodosApi } from './api'
+import { GET_TODOS, SET_FILTER, FILTER_DONE, FILTER_CURRENT, ADD_TODO, DELETE_TODO } from './consts'
 
 // Use redux-promise-middleware
 // https://github.com/pburtchaell/redux-promise-middleware/blob/master/docs/guides/chaining-actions.md
@@ -8,8 +7,25 @@ import { getTodosMock as getTodosApi } from './api'
 // https://github.com/acdlite/flux-standard-action
 export const getTodos = () => ({
   type: GET_TODOS,
-  payload: getTodosApi(),
 })
+
+export const addTodo = (text: string) => {
+
+  return {
+    type: ADD_TODO,
+    payload: {
+      id: new Date(),
+      text,
+      done: false,
+    },
+  }
+}
+
+export const deleteTodo = (id: number) => ({
+  type: DELETE_TODO,
+  id,
+})
+
 
 // Plain actions uses Flux Standard Action (FSA) notation
 // https://github.com/acdlite/flux-standard-action

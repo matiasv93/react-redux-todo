@@ -1,7 +1,7 @@
 // @flow
 export const todo = {
   text: 'This is a single todo',
-  date: '2017-11-11T11:11:11Z',
+  id: '3b',
   done: false,
 }
 
@@ -9,23 +9,27 @@ export const todoList = {
   list: [
     {
       text: 'This is the first todo',
-      date: '2016-12-12T20:22:54Z',
+      id: '1a',
       done: false,
     },
     {
       text: 'This is the second todo',
+      id: '1b',
       done: false,
     },
     {
       text: 'This is the third todo',
+      id: '1c',
       done: false,
     },
     {
       text: 'This is todo has "double-quotes"',
+      id: '1d',
       done: false,
     },
     {
       text: 'This one\'s done',
+      id: '2e',
       done: true,
     },
   ],
